@@ -1,0 +1,4 @@
+SUBSYSTEM=="",         KERNEL=="cpu",              ACTION=="add", ATTR{intel_pstate/no_turbo}="1"
+SUBSYSTEM=="cpu",      KERNEL=="cpu[0-9]",         ACTION=="add", ATTR{power/energy_perf_bias}="15"
+SUBSYSTEM=="drm",      KERNEL=="card[0-9]",        ACTION=="add", ATTR{gt_max_freq_mhz}="500", ATTR{gt_boost_freq_mhz}="500"
+SUBSYSTEM=="powercap", KERNEL=="intel-rapl:[0-9]", ACTION=="add", ATTR{constraint_0_power_limit_uw}="8000000"

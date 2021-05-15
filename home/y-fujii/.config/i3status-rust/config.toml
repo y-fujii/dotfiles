@@ -1,0 +1,31 @@
+theme = "native"
+icons = "awesome5"
+
+[[block]]
+block = "battery"
+
+[[block]]
+block = "cpu"
+format = "{utilization} {frequency}"
+
+[[block]]
+block = "memory"
+
+[[block]]
+block = "net"
+device = "wlan0"
+
+[[block]]
+block = "temperature"
+collapsed = false
+
+[[block]]
+block = "backlight"
+
+[[block]]
+block = "sound"
+driver = "alsa"
+device = "hw:PCH"
+
+[[block]]
+block = "time"

@@ -1,0 +1,1 @@
+SUBSYSTEM=="block", KERNEL=="zram0", ACTION=="add", ATTR{comp_algorithm}="lz4", ATTR{disksize}="8G", RUN+="/usr/bin/mkswap /dev/zram0", RUN+="/usr/bin/swapon /dev/zram0"
