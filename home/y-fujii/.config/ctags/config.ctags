@@ -1,0 +1,4 @@
+--extras=+q
+--recurse
+--exclude=target
+--exclude=build

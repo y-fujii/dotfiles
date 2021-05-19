@@ -1,0 +1,4 @@
+set editing-mode vi
+set show-all-if-ambiguous on
+j: history-search-forward
+k: history-search-backward
