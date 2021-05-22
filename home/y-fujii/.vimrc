@@ -5,6 +5,8 @@ endif
 
 set autowrite
 set breakindent
+set completeopt^=longest
+set wildmode^=longest:full
 set laststatus=1
 set grepprg=rg\ --vimgrep
 set runtimepath^=~/.vim-plugins/eskk.vim
@@ -30,9 +32,15 @@ if filereadable("Cargo.toml") || filereadable("../Cargo.toml")
 	compiler! cargo
 	noremap zm :make build<cr>
 	noremap zR :make! run --release<cr>
+elseif filereadable("build.ninja")
+	set makeprg=ninja
 endif
 
 highlight clear vertsplit
+highlight clear pmenu
+highlight clear pmenusel
 highlight vertsplit ctermfg=0
 highlight statusline ctermfg=0
 highlight statuslinenc ctermfg=0
+highlight pmenu cterm=reverse ctermfg=0
+highlight pmenusel cterm=reverse ctermfg=4
