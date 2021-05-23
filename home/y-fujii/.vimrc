@@ -36,11 +36,8 @@ elseif filereadable("build.ninja")
 	set makeprg=ninja
 endif
 
-highlight clear vertsplit
-highlight clear pmenu
-highlight clear pmenusel
-highlight vertsplit ctermfg=0
+highlight vertsplit term=none cterm=none ctermfg=0
 highlight statusline ctermfg=0
 highlight statuslinenc ctermfg=0
-highlight pmenu cterm=reverse ctermfg=0
-highlight pmenusel cterm=reverse ctermfg=4
+highlight pmenu term=reverse cterm=reverse ctermfg=0 ctermbg=none
+highlight pmenusel term=reverse cterm=reverse ctermfg=4 ctermbg=none
