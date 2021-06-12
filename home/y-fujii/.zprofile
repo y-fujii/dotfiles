@@ -1,4 +1,3 @@
-export LD_LIBRARY_PATH=/usr/lib/pipewire-0.3/jack
 export PATH=$HOME/.cargo/bin:/usr/bin
 export LANG=en_US.UTF-8
 export EDITOR=/usr/bin/nvim
