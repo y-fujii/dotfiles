@@ -8,6 +8,5 @@ export GTK_IM_MODULE=fcitx5
 export QT_IM_MODULE=fcitx5
 
 if test "$(tty)" = "/dev/tty1"; then
-	sudo sh -c "echo 1 > /sys/devices/system/cpu/intel_pstate/no_turbo"
 	exec sway
 fi
