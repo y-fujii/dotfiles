@@ -1,6 +1,6 @@
 export PATH=$HOME/.cargo/bin:/usr/bin
 export LANG=en_US.UTF-8
-export EDITOR=/usr/bin/nvim
+export EDITOR=/usr/bin/vim
 export PAGER=/usr/bin/less
 export PIPEWIRE_LATENCY=128/48000
 export MESA_LOADER_DRIVER_OVERRIDE=crocus

@@ -39,5 +39,6 @@ endif
 highlight vertsplit term=none cterm=none ctermfg=0
 highlight statusline ctermfg=0
 highlight statuslinenc ctermfg=0
+highlight search term=reverse cterm=reverse ctermfg=4 ctermbg=none
 highlight pmenu term=reverse cterm=reverse ctermfg=0 ctermbg=none
 highlight pmenusel term=reverse cterm=reverse ctermfg=4 ctermbg=none

@@ -32,7 +32,7 @@ function nd {
 }
 
 function vi {
-	TERM=foot+base $EDITOR "$@"
+	$EDITOR "$@"
 }
 
 function vol {
