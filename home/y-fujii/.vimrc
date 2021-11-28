@@ -3,35 +3,33 @@ if !has("nvim")
 	set t_Co=8
 endif
 
+function Complete()
+	let x = col(".") - 1
+	return x > 0 && getline(".")[x - 1] =~ "[0-9a-zA-Z_]" ? "\<c-p>" : "\<tab>"
+endfunction
+
 set autowrite
 set breakindent
 set completeopt^=longest
 set wildmode^=longest:full
 set laststatus=1
 set grepprg=rg\ --vimgrep
-set runtimepath^=~/.vim-plugins/eskk.vim
-set runtimepath^=~/.vim-plugins/goyo.vim
-let g:eskk#large_dictionary = { "path": "/usr/share/skk/SKK-JISYO.L" }
+let g:mapleader = " "
 
-function Complete()
-	let x = col(".") - 1
-	return x > 0 && getline(".")[x - 1] =~ "[a-zA-Z_]" ? "\<c-p>" : "\<tab>"
-endfunction
-
-inoremap <silent> <tab> <c-r>=Complete()<cr>
 noremap Y y$
 noremap U <c-r>
-noremap zm :make<cr>
-noremap zt :make! test<cr>
-noremap zr :make! run<cr>
+noremap <leader>m :make<cr>
+noremap <leader>t :make! test<cr>
+noremap <leader>r :make! run<cr>
+inoremap <silent> <tab> <c-r>=Complete()<cr>
 
 autocmd bufreadpost * normal g`"
 autocmd quickfixcmdpost * cwindow | set nowrap
 
 if filereadable("Cargo.toml") || filereadable("../Cargo.toml")
 	compiler! cargo
-	noremap zm :make build<cr>
-	noremap zR :make! run --release<cr>
+	noremap <leader>m :make build<cr>
+	noremap <leader>R :make! run --release<cr>
 elseif filereadable("build.ninja")
 	set makeprg=ninja
 endif
@@ -42,3 +40,22 @@ highlight statuslinenc ctermfg=0
 highlight search term=reverse cterm=reverse ctermfg=4 ctermbg=none
 highlight pmenu term=reverse cterm=reverse ctermfg=0 ctermbg=none
 highlight pmenusel term=reverse cterm=reverse ctermfg=4 ctermbg=none
+
+if isdirectory(expand("~/.vim-plugins"))
+	set runtimepath^=~/.vim-plugins/yankround.vim
+	set runtimepath^=~/.vim-plugins/eskk.vim
+	let g:eskk#large_dictionary = { "path": "/usr/share/skk/SKK-JISYO.L" }
+
+	nmap p <plug>(yankround-p)
+	xmap p <plug>(yankround-p)
+	nmap P <plug>(yankround-P)
+	nmap gp <plug>(yankround-gp)
+	xmap gp <plug>(yankround-gp)
+	nmap gP <plug>(yankround-gP)
+	nmap <c-p> <plug>(yankround-prev)
+	nmap <c-n> <plug>(yankround-next)
+endif
+
+if filereadable(expand("~/.vimrc-ex"))
+	source ~/.vimrc-ex
+endif

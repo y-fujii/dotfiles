@@ -1,4 +1,5 @@
 set editing-mode vi
 set show-all-if-ambiguous on
+set keymap vi-command
 j: history-search-forward
 k: history-search-backward

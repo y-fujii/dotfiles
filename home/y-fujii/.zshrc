@@ -12,8 +12,8 @@ bindkey -a o accept-line-and-down-history
 bindkey -a q push-input
 compinit
 
-prompt='
-%S%F{0} %~ %f%s '
+prompt="
+%S%F{0} $(test -z "$SSH_CONNECTION" || echo "%m:")%~ %f%s "
 
 function ls {
 	/usr/bin/ls -F "$@"
@@ -32,19 +32,7 @@ function nd {
 }
 
 function vi {
-	$EDITOR "$@"
+	"$EDITOR" "$@"
 }
 
-function vol {
-	if (($# > 0)); then
-		amixer -c 1 sset Master $((127 - $1 * 2))
-	else
-		amixer -c 1 sget Master
-	fi
-}
-
-function touchpad-reset {
-	swaymsg input 1118:2025:Microsoft_Surface_Type_Cover_Touchpad events disabled
-	swaymsg input 1118:2025:Microsoft_Surface_Type_Cover_Touchpad events enabled
-	swaymsg input 1118:2025:Microsoft_Surface_Type_Cover_Touchpad tap enabled
-}
+test -f .zshrc-ex && source .zshrc-ex
