@@ -10,10 +10,13 @@ endfunction
 
 set autowrite
 set breakindent
+set cinoptions=(1s,u1s,m1
 set completeopt^=longest
-set wildmode^=longest:full
-set laststatus=1
 set grepprg=rg\ --vimgrep
+set laststatus=1
+set shiftwidth=4
+set tabstop=4
+set wildmode^=longest:full
 let g:mapleader = " "
 
 noremap Y y$

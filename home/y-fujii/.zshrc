@@ -31,6 +31,18 @@ function nd {
 	pushd -0 > /dev/null && ls
 }
 
+function mv {
+	/usr/bin/mv -i "$@"
+}
+
+function cp {
+	/usr/bin/cp -i "$@"
+}
+
+function rm {
+	/usr/bin/rm -I "$@"
+}
+
 function vi {
 	"$EDITOR" "$@"
 }
