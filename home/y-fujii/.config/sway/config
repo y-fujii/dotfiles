@@ -1,6 +1,5 @@
 include default
 
-bindsym $mod+Return exec foot
 bindsym $mod+d exec bemenu-run
 
 workspace_layout tabbed

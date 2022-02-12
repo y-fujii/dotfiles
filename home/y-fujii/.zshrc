@@ -1,9 +1,7 @@
 umask 022
 setopt nobgnice
 bindkey -v
-autoload -U compinit
-autoload -U up-line-or-beginning-search
-autoload -U down-line-or-beginning-search
+autoload -U compinit up-line-or-beginning-search down-line-or-beginning-search
 zle -N up-line-or-beginning-search
 zle -N down-line-or-beginning-search
 bindkey -a k up-line-or-beginning-search
