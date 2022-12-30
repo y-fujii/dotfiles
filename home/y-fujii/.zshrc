@@ -13,36 +13,13 @@ compinit
 prompt="
 %S%F{0} $(test -z "$SSH_CONNECTION" || echo "%m:")%~ %f%s "
 
-function ls {
-	/usr/bin/ls -F "$@"
-}
-
-function cd {
-	pushd "$@" > /dev/null && ls
-}
-
-function pd {
-	pushd +1 > /dev/null && ls
-}
-
-function nd {
-	pushd -0 > /dev/null && ls
-}
-
-function mv {
-	/usr/bin/mv -i "$@"
-}
-
-function cp {
-	/usr/bin/cp -i "$@"
-}
-
-function rm {
-	/usr/bin/rm -I "$@"
-}
-
-function vi {
-	"$EDITOR" "$@"
-}
+function ls { /usr/bin/ls -F "$@" }
+function cd { pushd "$@" > /dev/null && ls }
+function pd { pushd +1 > /dev/null && ls }
+function nd { pushd -0 > /dev/null && ls }
+function mv { /usr/bin/mv -i "$@" }
+function cp { /usr/bin/cp -i "$@" }
+function rm { /usr/bin/rm -I "$@" }
+function vi { "$EDITOR" "$@" }
 
 test -f .zshrc-ex && source .zshrc-ex
