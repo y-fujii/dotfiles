@@ -1,4 +1,5 @@
 if !has("nvim")
+	unlet! skip_defaults_vim
 	source $VIMRUNTIME/defaults.vim
 	set t_Co=8
 endif
@@ -12,11 +13,16 @@ set autowrite
 set breakindent
 set cinoptions=(1s,u1s,m1
 set completeopt^=longest
+set fillchars=eob:\ ,vert:│
 set grepprg=rg\ --vimgrep
 set laststatus=1
+set runtimepath^=~/.vim-plugins/eskk.vim
 set shiftwidth=4
 set tabstop=4
 set wildmode^=longest:full
+set wildoptions^=pum
+
+let g:eskk#large_dictionary = { "path": "/usr/share/skk/SKK-JISYO.L" }
 let g:mapleader = " "
 
 noremap Y y$
@@ -43,22 +49,3 @@ highlight statuslinenc ctermfg=0
 highlight search term=reverse cterm=reverse ctermfg=4 ctermbg=none
 highlight pmenu term=reverse cterm=reverse ctermfg=0 ctermbg=none
 highlight pmenusel term=reverse cterm=reverse ctermfg=4 ctermbg=none
-
-if isdirectory(expand("~/.vim-plugins"))
-	set runtimepath^=~/.vim-plugins/yankround.vim
-	set runtimepath^=~/.vim-plugins/eskk.vim
-	let g:eskk#large_dictionary = { "path": "/usr/share/skk/SKK-JISYO.L" }
-
-	nmap p <plug>(yankround-p)
-	xmap p <plug>(yankround-p)
-	nmap P <plug>(yankround-P)
-	nmap gp <plug>(yankround-gp)
-	xmap gp <plug>(yankround-gp)
-	nmap gP <plug>(yankround-gP)
-	nmap <c-p> <plug>(yankround-prev)
-	nmap <c-n> <plug>(yankround-next)
-endif
-
-if filereadable(expand("~/.vimrc-ex"))
-	source ~/.vimrc-ex
-endif
