@@ -37,6 +37,7 @@ autocmd quickfixcmdpost * cwindow | set nowrap
 
 if filereadable("Cargo.toml") || filereadable("../Cargo.toml")
 	compiler! cargo
+	set makeprg=RUST_BACKTRACE=1\ cargo\ $*
 	noremap <leader>m :make build<cr>
 	noremap <leader>R :make! run --release<cr>
 elseif filereadable("build.ninja")
