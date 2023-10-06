@@ -40,6 +40,7 @@ if filereadable("Cargo.toml") || filereadable("../Cargo.toml")
 	set makeprg=RUST_BACKTRACE=1\ cargo\ $*
 	noremap <leader>m :make build<cr>
 	noremap <leader>R :make! run --release<cr>
+	noremap <leader>T :make! test -- --test-threads=1 --nocapture<cr>
 elseif filereadable("build.ninja")
 	set makeprg=ninja
 endif
