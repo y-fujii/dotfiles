@@ -1,11 +1,15 @@
 vim9script
 
 def g:Complete(): string
-	var x = col(".") - 1
-	return x > 0 && getline(".")[x - 1] =~ "[0-9a-zA-Z_]" ? "\<c-p>" : "\<tab>"
+	const x = col(".") - 1
+	return x > 0 && getline(".")[x - 1] =~ "[0-9a-zA-Z_]" ? "\<c-n>" : "\<tab>"
 enddef
 
+g:eskk#large_dictionary = { "path": "/usr/share/skk/SKK-JISYO.L" }
+g:mapleader = " "
+
 set autowrite
+set backspace=indent,eol
 set breakindent
 set cinoptions=(1s,u1s,m1
 set completeopt^=longest
@@ -19,9 +23,6 @@ set wildmenu
 set wildmode^=longest:full
 set wildoptions^=pum
 
-g:eskk#large_dictionary = { "path": "/usr/share/skk/SKK-JISYO.L" }
-g:mapleader = " "
-
 noremap Y y$
 noremap U <c-r>
 noremap <leader>m :make<cr>
@@ -33,13 +34,13 @@ autocmd bufreadpost * normal g`"
 autocmd quickfixcmdpost * cwindow | set nowrap
 
 filetype plugin indent on
+syntax enable
 
-highlight vertsplit term=none cterm=none
+highlight vertsplit cterm=none
 highlight statusline ctermfg=0
 highlight statuslinenc ctermfg=0
-highlight pmenu term=reverse cterm=reverse ctermfg=0 ctermbg=none
-highlight pmenusel term=reverse cterm=reverse ctermfg=4 ctermbg=none
-syntax enable
+highlight pmenu cterm=reverse ctermfg=0 ctermbg=none
+highlight pmenusel cterm=reverse ctermfg=4 ctermbg=none
 
 if filereadable("Cargo.toml") || filereadable("../Cargo.toml")
 	compiler! cargo
