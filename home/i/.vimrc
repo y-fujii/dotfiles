@@ -17,7 +17,7 @@ set fillchars=eob:\ ,vert:│
 set grepprg=rg\ --vimgrep
 set scrolloff=4
 set shiftwidth=4
-set t_Co=8
+#set t_Co=8
 set tabstop=4
 set wildmenu
 set wildmode^=longest:full
