@@ -11,7 +11,7 @@ g:mapleader = " "
 set autowrite
 set backspace=indent,eol
 set breakindent
-set cinoptions=(1s,u1s,m1
+set cinoptions=l1,(1s,U1s,m1
 set completeopt^=longest
 set fillchars=eob:\ ,vert:│
 set grepprg=rg\ --vimgrep
@@ -32,15 +32,10 @@ inoremap <silent> <tab> <c-r>=g:Complete()<cr>
 
 autocmd bufreadpost * normal g`"
 autocmd quickfixcmdpost * cwindow | set nowrap
+autocmd diffupdated * syntax off
 
 filetype plugin indent on
 syntax enable
-
-highlight vertsplit cterm=none
-highlight statusline ctermfg=0
-highlight statuslinenc ctermfg=0
-highlight pmenu cterm=reverse ctermfg=0 ctermbg=none
-highlight pmenusel cterm=reverse ctermfg=4 ctermbg=none
 
 if filereadable("Cargo.toml") || filereadable("../Cargo.toml")
 	compiler! cargo
@@ -51,3 +46,24 @@ if filereadable("Cargo.toml") || filereadable("../Cargo.toml")
 elseif filereadable("build.ninja")
 	set makeprg=ninja
 endif
+
+highlight vertsplit none
+highlight statusline ctermfg=0
+highlight statuslinenc ctermfg=0
+highlight visual none cterm=reverse ctermfg=4
+highlight search none cterm=reverse ctermfg=4
+highlight matchparen none cterm=bold
+highlight pmenu none cterm=reverse ctermfg=0
+highlight pmenusel none cterm=reverse ctermfg=4
+highlight pmenusbar none
+highlight pmenuthumb none
+
+highlight comment none ctermfg=243
+highlight constant none ctermfg=6
+highlight identifier none
+highlight preproc none
+highlight special none
+highlight statement none ctermfg=6
+highlight type none ctermfg=6
+highlight title none ctermfg=6
+highlight underlined none cterm=underline
