@@ -1,0 +1,20 @@
+function batt {
+	cat /sys/class/power_supply/BAT0/capacity
+}
+
+function vol {
+	if (($# > 0)); then
+		amixer -c 1 sset Master $((127 - $1 * 2))
+	else
+		amixer -c 1 sget Master
+	fi
+}
+
+function touchpad-reset {
+	sudo modprobe -r hid_multitouch
+	sudo modprobe hid_multitouch
+}
+
+function backlight {
+	sudo sh -c "echo $(($1 * 937 / 100)) > /sys/class/backlight/intel_backlight/brightness"
+}

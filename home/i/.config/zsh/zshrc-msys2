@@ -1,0 +1,8 @@
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
+zstyle ':completion:*' fake-files /: '/:c d'
+
+function sudo { "$SYSTEMROOT/system32/sudo.exe" "$@" }
+function reboot { "$SYSTEMROOT/system32/shutdown.exe" //r //t 0 }
+function poweroff { "$SYSTEMROOT/system32/shutdown.exe" //s //t 0 }
+function ping { "$SYSTEMROOT/system32/ping.exe" "$@" }
+function ipconfig { "$SYSTEMROOT/system32/ipconfig.exe" "$@" }

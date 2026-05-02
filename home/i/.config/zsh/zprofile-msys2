@@ -1,0 +1,16 @@
+export MSYS=winsymlinks:lnk
+export MSYS2_PATH_TYPE=strict
+export MSYSTEM=UCRT64
+emulate sh -c 'source /etc/profile'
+
+source ~/.config/zsh/zprofile-generic
+
+export LIBCLANG_PATH=/ucrt64/bin
+export PYTHONUTF8=1
+export XDG_CONFIG_HOME="$HOME/.config"
+export XDG_DATA_HOME="$HOME/.local/share"
+export XDG_STATE_HOME="$HOME/.local/state"
+export XDG_CACHE_HOME="$HOME/.local/cache"
+export RUSTUP_HOME="$HOME/.rustup"
+export CARGO_HOME="$HOME/.cargo"
+export ELAN_HOME="$HOME/.elan"

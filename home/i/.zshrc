@@ -21,6 +21,6 @@ function nd { pushd -0 > /dev/null && ls }
 function mv { /bin/mv -i "$@" }
 function cp { /bin/cp -i "$@" }
 function rm { /bin/rm -I "$@" }
-function vi { "$EDITOR" "$@" }
+function vi { /usr/bin/vim "$@" }
 
-test -f .zshrc-ex && source .zshrc-ex
+test -f ~/.zshrc-ex && source ~/.zshrc-ex

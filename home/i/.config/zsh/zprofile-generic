@@ -1,0 +1,4 @@
+export PATH="$HOME/usr/bin:$HOME/.cargo/bin:$HOME/.elan/bin:$PATH"
+export LANG=C.UTF-8
+export PAGER=/usr/bin/less
+export EDITOR=/usr/bin/vim
