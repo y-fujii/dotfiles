@@ -1,7 +1,7 @@
 [Match]
-Name=wlan0
+Name=en* wlan*
 
 [Network]
-DHCP=yes
+DHCP=ipv4
 MulticastDNS=true
 IPv6PrivacyExtensions=true
