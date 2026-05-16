@@ -17,6 +17,7 @@ set completeopt^=fuzzy,longest
 set fillchars=eob:\ ,vert:│
 set scrolloff=4
 set shiftwidth=4
+set t_RB=
 set tabstop=4
 set wildmode^=longest:full
 set wildoptions^=fuzzy,pum
