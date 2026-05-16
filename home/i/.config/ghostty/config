@@ -2,11 +2,10 @@ alpha-blending = linear
 cursor-style-blink = false
 font-family = "Sarasa Fixed J"
 font-size = 14.5
-macos-titlebar-style = tabs
 window-padding-balance = true
 background = #ffffff
 foreground = #000000
-palette =  0=#4b4949
+palette =  0=#000000
 palette =  1=#ae523f
 palette =  2=#378346
 palette =  3=#8e6c00
@@ -21,6 +20,11 @@ palette = 11=#8e6c00
 palette = 12=#4f6eba
 palette = 13=#965599
 palette = 14=#008395
-palette = 15=#9d9a99
+palette = 15=#ffffff
+
 background-image-opacity = 0.25
 background-image-position = center-right
+#background-image = ~/.config/ghostty/wallpaper.png
+
+macos-titlebar-style = tabs
+keybind = ¥=text:\\

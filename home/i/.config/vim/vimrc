@@ -1,33 +1,33 @@
 vim9script
 
-def g:Complete(): string
-	const x = col(".") - 1
-	return x > 0 && getline(".")[x - 1] =~ "[0-9a-zA-Z_]" ? "\<c-n>" : "\<tab>"
-enddef
-
 g:eskk#large_dictionary = { "path": "/usr/share/skk/SKK-JISYO.L" }
 g:mapleader = " "
 
+def g:Complete(key: string): string
+	const x = col(".") - 1
+	return x > 0 && getline(".")[x - 1] =~ "[0-9a-zA-Z_]" ? key : "\<tab>"
+enddef
+
+command -nargs=1 GitGrep vimgrep <args> `git ls-files`
+
 set autowrite
-set backspace=indent,eol
 set breakindent
 set cinoptions=l1,(1s,U1s,m1
-set completeopt^=longest
+set completeopt^=fuzzy,longest
 set fillchars=eob:\ ,vert:│
-set grepprg=rg\ --vimgrep
 set scrolloff=4
 set shiftwidth=4
 set tabstop=4
-set wildmenu
 set wildmode^=longest:full
-set wildoptions^=pum
+set wildoptions^=fuzzy,pum
 
 noremap Y y$
 noremap U <c-r>
 noremap <leader>m :make<cr>
 noremap <leader>t :make! test<cr>
 noremap <leader>r :make! run<cr>
-inoremap <silent> <tab> <c-r>=g:Complete()<cr>
+inoremap <silent> <tab>   <c-r>=g:Complete("\<lt>c-n>")<cr>
+inoremap <silent> <s-tab> <c-r>=g:Complete("\<lt>c-p>")<cr>
 
 autocmd bufreadpost * normal g`"
 autocmd quickfixcmdpost * cwindow | set nowrap
@@ -46,16 +46,16 @@ elseif filereadable("build.ninja")
 	set makeprg=ninja
 endif
 
-highlight vertsplit none
-highlight statusline ctermfg=0
-highlight statuslinenc ctermfg=0
-highlight visual none cterm=reverse ctermfg=4
-highlight search none cterm=reverse ctermfg=4
+highlight vertsplit none ctermfg=8
+highlight statusline none ctermfg=15 ctermbg=8
+highlight statuslinenc none ctermfg=15 ctermbg=8
+highlight visual none ctermfg=15 ctermbg=4
+highlight search none ctermfg=15 ctermbg=4
 highlight matchparen none cterm=bold
-highlight pmenu none cterm=reverse ctermfg=0
-highlight pmenusel none cterm=reverse ctermfg=4
-highlight pmenusbar none
-highlight pmenuthumb none
+highlight pmenu none ctermfg=15 ctermbg=8
+highlight pmenusel none ctermfg=15 ctermbg=4
+highlight pmenusbar none ctermfg=15 ctermbg=8
+highlight pmenuthumb none ctermfg=15 ctermbg=7
 
 highlight comment none ctermfg=243
 highlight constant none ctermfg=6

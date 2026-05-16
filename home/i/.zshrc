@@ -12,7 +12,7 @@ compinit
 
 HISTSIZE=256
 PS1="
-%S%F{0} $(test -z "$SSH_CONNECTION" || echo "%m:")%~ %f%s "
+%K{8}%F{15} $(test -z "$SSH_CONNECTION" || echo "%m:")%~ %f%k "
 
 function ls { /bin/ls -F "$@" }
 function cd { pushd "$@" > /dev/null && ls }
