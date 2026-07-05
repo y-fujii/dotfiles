@@ -1,0 +1,3 @@
+PRESETS=("default")
+default_kver="/boot/vmlinuz-linux"
+default_uki="/boot/EFI/BOOT/BOOTX64.EFI"
