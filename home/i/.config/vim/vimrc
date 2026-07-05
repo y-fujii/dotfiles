@@ -8,7 +8,7 @@ def g:Complete(key: string): string
 	return x > 0 && getline(".")[x - 1] =~ "[0-9a-zA-Z_]" ? key : "\<tab>"
 enddef
 
-command -nargs=1 GitGrep vimgrep <args> `git ls-files`
+command -nargs=1 GitGrep grep <args> `git ls-files`
 
 set autowrite
 set breakindent
